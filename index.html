@@ -29,6 +29,9 @@
         .fa-facebook:before {
             content: "\f39e"
         }
+        .fa-twitter:before {
+            content: "\f099"
+        }
         .fa-instagram:before {
             content: "\f16d"
         }
@@ -38,24 +41,26 @@
             font-family: sans-serif;
         }
         :link, :visited {
-            color: inherit;
+            color: #D3C392;
             text-decoration: none;
-            transition: 0.5s
+            transition: 0.25s
         }
         :link:hover, :visited:hover {
-            color: #999999
+            color: #333
         }
         nav {
-            max-width: 1200px;
-            margin: auto;
             padding: 0 16px;
             position: sticky;
             top: 0;
-            display: grid;
+            background-color: #fff;
+        }
+        .nav_inner {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
             height: 100px;
             align-items: center;
-            grid-auto-flow: column;
-            background-color: #fff;
         }
         nav .social_icons {
             justify-self: end;
@@ -66,7 +71,8 @@
             color: #333;
         }
         footer {
-            display: grid;
+            display: flex;
+            flex-direction: column;
             width: calc(100% - 32px);
             text-align: center;
             background-color: #333333;
@@ -78,7 +84,7 @@
         }
         footer :link, footer :visited {
             color: #999999;
-            transition: 0.5s;
+            transition: 0.25s;
         }
         footer :link:hover, footer :visited:hover {
             color: #fff
@@ -91,7 +97,7 @@
             border-radius: 24px;
             padding: 8px;
             min-width: 24px;
-            transition: 0.5s;
+            transition: 0.25s;
         }
         footer .social_icons i:hover {
             color: #fff
@@ -101,28 +107,55 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 200px;
+            min-height: 200px;
             font-size: 1.25em;
             line-height: 1.75em;
-        }
-        .subscribe :link, .subscribe :visited {
-            border-bottom: 2px solid #333;
-        }
-        .subscribe :link:hover, .subscribe :visited:hover {
-            color: #333
         }
         .red {
             background-color: #FB646F;
         }
+        .red a {
+            background: #fff;
+            border-radius: 24px;
+            padding: 0.5em 1.25em;
+            transition: 0.5s;
+            color: #333!important
+        }
+        .red a:hover {
+            box-shadow: 0 8px 8px rgba(0,0,0,.24), 0 0 8px rgba(0,0,0,.12);
+        }
         .gold {
             background-color: #D3C392;
+            margin-top: 100px
+        }
+        .inner {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            width: 100%;
+            margin: auto;
+            align-items: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .red .inner {
+            flex-direction: column;
+        }
+        .gold p {
+            max-width: 350px;
+        }
+        .gold a {
+            display: flex;
+            align-items: center;
         }
         header {
             background: url("https://southamptonfocus.co.uk/wp-content/uploads/2020/02/header-scaled.jpg");
             height: 200px;
-            display: grid;
-            align-items: center;
-            justify-content: center;
+            display: flex;
+            flex-direction: column;
             color: #fff;
             text-align: center;
             padding: 100px 16px;
@@ -137,15 +170,46 @@
         .comingSoon {
             max-width: 800px;
             margin: auto;
-            padding: 100px 16px;
+            padding: 75px 16px;
+            text-align: center;
         }
-        @media (max-width: 500px) {
+        .follow {
+            max-width: 800px;
+            margin: auto;
+            padding: 75px 16px;
+            text-align: center;
+            border: 2px solid #D3C392;
+        }
+        .advertise {
+            padding: 50px 16px;
+        }
+        .advertise .inner {
+            max-width: 1200px;
+        }
+        .advertise .left {
+            max-width: 600px;
+            text-align: center;
+        }
+        .advertise img {
+            max-width: 500px;
+        }
+        .follow .fab {
+            color: #333
+        }
+        @media (max-width: 840px) {
+            .follow {
+                margin: 0 16px;
+            }
+        }
+        @media (max-width: 700px) {
             nav {
-                grid-auto-flow: row;
+                position: relative;
+            }
+            .nav_inner {
+                flex-direction: column;
                 height: 130px;
                 justify-content: center;
                 align-content: center;
-                position: relative;
             }
             nav .social_icons {
                 justify-self: center;
@@ -157,37 +221,93 @@
             h2 {
                 font-size: 1.25em
             }
+            .inner {
+                flex-direction: column;
+            }
+            .subscribe, .advertise {
+                padding: 0 16px;
+            }
+            .comingSoon, .follow {
+                padding: 50px 16px
+            }
+            .advertise img {
+                width: calc(100% + 32px);
+            }
+            .gold a {
+                margin-top: 1.25em;
+            }
+            .red .inner div {
+                margin-bottom: 1.25em;
+            }
         }
     </style>
     <nav>
-        <img src="https://southamptonfocus.co.uk/wp-content/uploads/2017/01/Southampton-Focus-Website-Logo300x90.jpg" alt="logo">
-        <div class="social_icons">
-            <a href="https://www.facebook.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-instagram"></i></a>
+        <div class="nav_inner">
+            <img src="https://southamptonfocus.co.uk/wp-content/uploads/2017/01/Southampton-Focus-Website-Logo300x90.jpg" alt="logo">
+            <div class="social_icons">
+                <a href="https://www.facebook.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/SotonFocus" target="_blank" rel="noreferrer noopener"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
+        
     </nav>
     <header>
-        <h2>Find the perfect place to hangout in your city.</h2>
+        <h2>Find what’s on and where to go in your city.</h2>
         <h1>Explore Southampton.</h1>
     </header>
     <main>
         <section class="comingSoon">
-            <h3>Heading 3</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem rem cumque officia ex veritatis hic temporibus necessitatibus deserunt, aut quisquam sequi exercitationem magni tempora impedit possimus, eius sunt fuga! Deserunt.</p>
-            <br>
-            <h3>Heading 3</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem rem cumque officia ex veritatis hic temporibus necessitatibus deserunt, aut quisquam sequi exercitationem magni tempora impedit possimus, eius sunt fuga! Deserunt.</p>
+            <h2>Southampton Focus</h2>
+            <p>Bored of going to the same places? Come to the only website for Southampton locals with everything you need and more.</p>
+            <p>Showcasing all the best places from independent cafe’s and boutiques, to your well know brands and chains, we help you find the ideal place to go.</p> 
+            <p>Create your own personal account, be the first to review businesses, add them to your favourites and create your own little Southampton black book!</p>
+            <p>Need inspo? Our lifestyle blog will have you brimming with ideas, covering everything from fitness to home interior, gift ideas and career motivation to make you the best version of YOU. As well as all of the latest events listed on the website for you to browse and find new hangouts.</p> 
+            <p>The one stop shop for the city. What will you discover?</p>
         </section>
-        <section class="subscribe red">
-            <p>Want to know when the website will be released? <a href="https://mirrordigitalmedia.us17.list-manage.com/subscribe?u=84af2ee05b51205027948c5cc&id=6d497b7153" target="_blank" rel="noreferrer noopener">Subscribe to the Newsletter</a></p>
+        <section class="follow">
+            <h2>Follow our Social Media!</h2>
+            <p><a href="https://www.facebook.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-facebook"></i></a> Like our Facebook page: <a href="https://www.facebook.com/southamptonfocus/" target="_blank" rel="noreferrer noopener">Southampton Focus</a></p>
+            <p><a href="https://www.instagram.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-instagram"></i></a> Follow our Southampton Instagram & Tag us in your photos: <a href="https://www.instagram.com/southamptonfocus/" target="_blank" rel="noreferrer noopener">@SouthamptonFocus</a> <a href="https://www.instagram.com/explore/tags/sotonfocus/" target="_blank" rel="noreferrer noopener">#SotonFocus</a></p>
+            <p>Looking for food-spiration? Follow: <a href="https://www.instagram.com/southampton.eats/" target="_blank" rel="noreferrer noopener">@Southampton.Eats</a></p>
         </section>
         <section class="subscribe gold">
-            <p>Want to know when the website will be released? <a href="https://mirrordigitalmedia.us17.list-manage.com/subscribe?u=84af2ee05b51205027948c5cc&id=6d497b7153" target="_blank" rel="noreferrer noopener">Subscribe to the Newsletter</a></p>
+            <div class="inner">
+                <a href="http://url.myvipcard.co.uk/5df0c090636fb/click" target="_blank" rel="noreferrer noopener"><img src="https://southamptonfocus.co.uk/wp-content/uploads/2020/02/My-VIP-Card-Logo-NEWsmall.png" alt="My VIP Logo" height="100px"></a>
+                <p>Save money when you shop local! Download the app & start saving with over 4000 discounts!</p>
+            </div>
+        </section>
+        <section class="advertise">
+            <div class="inner">
+                <div class="left">
+                    <h2>Advertise With Us</h2>
+                    <p>Let’s be honest you should probably be on our website … Want your business, event or content seen by Southampton locals?</p>
+                    <p>Reach an engaged and active local audience:</p>
+                    <ul class="list">
+                        <li>- Website Directory Listings</li>
+                        <li>- Social Media Promotion</li>
+                        <li>- Photography</li>
+                        <li>- Event Coverage</li>
+                        <li>- Sponsored Articles</li>
+                        <li>- Offers & Discounts</li>
+                        <li>- Sponsorship Opportunities</li>
+                    </ul>
+                    <p>Email <a href="mailto:info@mirrordigitalmedia.co.uk" target="_blank" rel="noreferrer noopener">info@mirrordigitalmedia.co.uk</a> for more information</p>
+                </div>
+                <img src="https://southamptonfocus.co.uk/wp-content/uploads/2020/02/Advertise.jpg" alt="Advertise with Us" width="100%">       
+            </div>                 
+        </section>
+        <section class="subscribe red">
+            <div class="inner">
+                <p>Sign up to our What’s On Southampton Newsletter & get notified when we go live</p>
+                <div><a href="https://mirrordigitalmedia.us17.list-manage.com/subscribe?u=84af2ee05b51205027948c5cc&id=6d497b7153" target="_blank" rel="noreferrer noopener">Sign Up</a></div>
+            </div>
         </section>
     </main>
     <footer>
         <div class="social_icons">
             <a href="https://www.facebook.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/SotonFocus" target="_blank" rel="noreferrer noopener"><i class="fab fa-twitter"></i></a>
             <a href="https://www.instagram.com/southamptonfocus/" target="_blank" rel="noreferrer noopener"><i class="fab fa-instagram"></i></a>
         </div>
         <p>© 2020 Southampton Focus. All rights reserved.</p>
